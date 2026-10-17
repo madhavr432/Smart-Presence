@@ -1,0 +1,23 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+
+# Local test files
+test_hash.py
+
+# Generated files
+backend/qr_codes/
+*.png
+
+# Local editor settings
+.vscode/
+
+
+qr_test.py
