@@ -192,7 +192,9 @@ def login(request: LoginRequest):
             "SELECT faculty_id, password_hash FROM faculty WHERE email = %s;",
             (request.login_id,),
         )
+        
         result = cursor.fetchone()
+        cursor.close()
         if result is None:
             return {"Invalid email or password"}
         else:
@@ -216,6 +218,7 @@ def login(request: LoginRequest):
             (request.login_id,),
         )
         result = cursor.fetchone()
+        cursor.close()
         if result is None:
             return {"Invalid login ID or password"}
         else:
@@ -231,6 +234,7 @@ def login(request: LoginRequest):
                 "enrollment_no": result[0],
                 "access_token": token,
             }
+        
 
     else:
         return {"invalid role"}
